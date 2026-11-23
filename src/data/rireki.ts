@@ -15,6 +15,9 @@ export const identity = {
 
 export const educationAndWork = [
   { heading: "学歴" },
+  { year: 2012, month: 7, text: "SMA Santa Ursula BSD 高校 入学" },
+  { year: 2013, month: 7, text: "SMA Santa Ursula BSD 高校 理系コース選択" },
+  { year: 2015, month: 6, text: "SMA Santa Ursula BSD 高校 卒業" },
   { year: 2015, month: 8, text: "Universitas Indonesia（インドネシア大学、デポック）歯学専攻 入学" },
   { year: 2022, month: 7, text: "同大学 歯学専攻 在学期間終了（GPA 3.69）" },
   { heading: "職歴" },
