@@ -6,7 +6,7 @@ import RirekiBox from "~/components/japanese-cv/rireki/RirekiBox.astro";
 import RirekiHeading from "~/components/japanese-cv/rireki/RirekiHeading.astro";
 import RirekiHistory from "~/components/japanese-cv/rireki/RirekiHistory.astro";
 import RirekiPhoto from "~/components/japanese-cv/rireki/RirekiPhoto.astro";
-import { documentDate, educationAndWork, identity, qualifications, strengths } from "~/data/rireki";
+import { documentDate, educationAndWork, identity, qualifications, strengths, aspirations } from "~/data/rireki";
 
 const historyHeading = "学　歴・職　歴（各別にまとめて書く）";
 const pageStyle = "px-[35pt] pt-[36pt]";
@@ -42,7 +42,7 @@ const pageStyle = "px-[35pt] pt-[36pt]";
       <RirekiBox
         title="本人希望記入欄"
         note="（特に給料、職種、勤務時間、勤務地、その他についての希望などがあれば記入）"
-        rows={["", "", ""]}
+        rows={aspirations}
       />
     </div>
   </Page>
