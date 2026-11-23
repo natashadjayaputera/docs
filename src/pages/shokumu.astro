@@ -1,0 +1,83 @@
+---
+import Document from "~/components/japanese-cv/Document.astro";
+import Page from "~/components/japanese-cv/Page.astro";
+import ShokumuHeading from "~/components/japanese-cv/shokumu/ShokumuHeading.astro";
+import ShokumuProjects from "~/components/japanese-cv/shokumu/ShokumuProjects.astro";
+import ShokumuSection from "~/components/japanese-cv/shokumu/ShokumuSection.astro";
+import { documentDate, identity } from "~/data/rireki";
+import { freelance, personalProjects, realta, skills, summary } from "~/data/shokumu";
+
+const pageStyle = "px-[43pt] pt-[40pt] pb-[38pt] text-[10pt] leading-[14.5pt]";
+---
+
+<Document title={`職務経歴書 | ${identity.name}`} proportional>
+  <Page class={pageStyle} pageNumber={{ current: 1, total: 2 }}>
+    <ShokumuHeading name={identity.name} asOf={documentDate} />
+    <ShokumuSection title="職務要約">
+      <p class="indent-[1em]">{summary}</p>
+    </ShokumuSection>
+    <ShokumuSection title="職務経歴" class="mt-3">
+      <h3 class="border border-black/60 bg-neutral-100 px-[6pt] py-[3pt]">
+        PT Realta Chakradarma（インドネシア・ジャカルタ）
+      </h3>
+      <table class="w-full table-fixed border-collapse border border-black/60">
+        <colgroup>
+          <col class="w-[87pt]" />
+          <col />
+        </colgroup>
+        <thead class="bg-neutral-100">
+          <tr>
+            <th scope="col" class="border border-black/60 px-[6pt] py-[2pt] font-normal">期間</th>
+            <th scope="col" class="border border-black/60 px-[6pt] py-[2pt] font-normal">担当業務・実績</th>
+          </tr>
+        </thead>
+        <tbody>
+          {realta.map(({ period, title, achievements }) => (
+            <tr class="align-top print:break-inside-avoid">
+              <th scope="row" class="border border-black/60 px-[6pt] py-[5pt] text-left font-normal">
+                {period.from}<br />～ {period.to}
+              </th>
+              <td class="border border-black/60 px-[6pt] py-[5pt]">
+                <h4 class="mb-1 font-bold">{title}</h4>
+                <ul class="list-disc space-y-1 pl-[1em]">
+                  {achievements.map((achievement) => <li>{achievement}</li>)}
+                </ul>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </ShokumuSection>
+  </Page>
+
+  <Page class={pageStyle} pageNumber={{ current: 2, total: 2 }}>
+    <ShokumuSection title="フリーランスでの開発実績">
+      <ShokumuProjects projects={freelance} />
+    </ShokumuSection>
+    <ShokumuSection title="個人・チームでの自主制作" class="mt-3">
+      <ShokumuProjects projects={personalProjects} />
+    </ShokumuSection>
+    <ShokumuSection title="活かせる経験・スキル" class="mt-3">
+      <table class="w-full table-fixed border-collapse border border-black/60">
+        <colgroup>
+          <col class="w-[115pt]" />
+          <col />
+        </colgroup>
+        <tbody>
+          {skills.map(({ category, details }) => (
+            <tr class="print:break-inside-avoid">
+              <th scope="row" class="border border-black/60 bg-neutral-100 px-[6pt] py-[2pt] text-left font-normal">{category}</th>
+              <td class="border border-black/60 px-[6pt] py-[2pt]">{details}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </ShokumuSection>
+    <ShokumuSection title="自己PR" class="mt-3">
+      <p class="indent-[1em]">
+        私の強みは、業務要件の整理から技術仕様の策定、開発、品質管理まで、工程をまたいで課題に対応できることです。Bimasakti 11では、進行を妨げていた仕様策定を引き受けるとともに、モバイルアプリの刷新ではチーム管理と品質管理も担当し、開発期間を短縮しました。社内ライブラリの性能改善や研修・ドキュメント整備を通じて、他のエンジニアが開発を進めやすい環境づくりにも取り組んできました。
+      </p>
+    </ShokumuSection>
+    <p class="mt-2 text-right">以上</p>
+  </Page>
+</Document>

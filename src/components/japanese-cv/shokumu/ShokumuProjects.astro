@@ -1,0 +1,26 @@
+---
+interface Props {
+  projects: readonly {
+    name: string;
+    period?: string;
+    overview: string;
+    stack: string;
+  }[];
+}
+
+const { projects } = Astro.props;
+---
+
+<div class="space-y-[6pt]">
+  {projects.map(({ name, period, overview, stack }) => (
+    <article class="border border-black/60 print:break-inside-avoid">
+      <h3 class="border-b border-black/60 bg-neutral-100 px-[6pt] py-[1pt]">
+        {name}{period && <span class="ml-3 text-[9pt]">（{period}）</span>}
+      </h3>
+      <div class="px-[6pt] py-[3pt]">
+        <p>{overview}</p>
+        <p>使用技術：{stack}</p>
+      </div>
+    </article>
+  ))}
+</div>
