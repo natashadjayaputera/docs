@@ -1,7 +1,7 @@
 export const documentDate = new Date();
 
 export const identity = {
-  nameFurigana: "なたーしゃ じゃやぷてら",
+  nameFurigana: "なたーしゃ じゃやぷとら",
   name: "Natasha Djayaputera",
   currentAddress: {
     furigana: "いんどねしあ ばんてんしゅう みなみたんげらんし",
