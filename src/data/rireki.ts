@@ -8,6 +8,9 @@ export const identity = {
     address: "インドネシア バンテン州 南タンゲラン市",
   },
   email: "natashadjayaputera@gmail.com",
+  dateOfBirth: "19970815",
+  gender: "女",
+  phone: "+62 8577 4012 048",
 };
 
 export const educationAndWork = [
